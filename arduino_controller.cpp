@@ -28,46 +28,50 @@ void setup(){
 }
 
 void loop(){
-  Serial.println(pos1);
+  //Serial.println(pos1);
 
   char val = Serial.read();
-  Serial.println(val);
-  if (val == 'r') {
+  //Serial.println(val);
+  if (val == 'l') {
      if (pos3 == 0) {
-      Serial.println("Can't move to right");
+      //Serial.println("Can't move to right");
      }
      else{
       pos3 -= 1;
       servo3.write(pos3);
+      delay(15);
      }
   }
-  else if (val == 'l') {
+  else if (val == 'r') {
     if (pos3 == 180) {
-      Serial.println("Can't move to left");
+      //Serial.println("Can't move to left");
     }
     else {
       pos3 += 1;
       servo3.write(pos3);
+      delay(15);
     }
   }
   else if (val == 'u') {
-    if (pos1 == 110) {
-      Serial.println("Can't move up");
+    if (pos1 == 180) {
+      //Serial.println("Can't move up");
     }
     else {
       pos1 += 1; pos2 -= 1;
       servo1.write(pos1);
       servo2.write(pos2);
+      delay(15);
     }
   }
   else if (val == 'd') {
-    if (pos1 == 0) {
-      Serial.println("Can't move down");
+    if (pos1 ==  0) {
+      //Serial.println("Can't move down");
     }
     else {
-      pos1 -= 1; pos2 -= 1;
+      pos1 -= 1; pos2 += 1;
       servo1.write(pos1);
       servo2.write(pos2);
+      delay(15);
     }
   }
 }
